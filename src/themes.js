@@ -1,9 +1,7 @@
 import React from "react";
-import { css } from "emotion";
-import styled from "@emotion/styled";
-import { ThemeProvider } from "emotion-theming";
+import { css, cx, styled, ThemeProvider } from "pretty-lights";
 
-const RANGE = Array(2000).fill(true);
+const RANGE = Array(5000).fill(true);
 
 const white = "#FFFFFF";
 const black = "#000000";
@@ -21,18 +19,22 @@ const ExpensiveList = ({ component, title }) => (
   </div>
 );
 
-//////////////////// EMOTION
-const StyledButton = styled.button`
+const baseButtonStyles = css`
   border: 1px solid;
   appearance: none;
   cursor: pointer;
+`;
+
+//////////////////// STYLED THEME (via pretty-lights)
+const StyledButton = styled.button`
+  ${baseButtonStyles}
   color: ${props => props.theme.color};
   background: ${props => props.theme.bg};
 `;
 
-export const EmotionTheme = ({ theme }) => (
+export const StyledTheme = ({ theme }) => (
   <ThemeProvider theme={THEMES[theme]}>
-    <ExpensiveList component={StyledButton} title="Emotion" />
+    <ExpensiveList component={StyledButton} title="styled" />
   </ThemeProvider>
 );
 
@@ -59,15 +61,15 @@ const smartTokens = {
 };
 
 const smartTokenButtonStyles = css`
-  border: 1px solid;
-  appearance: none;
-  cursor: pointer;
+  ${baseButtonStyles}
   color: ${smartTokens.color};
   background: ${smartTokens.bg};
 `;
 
 const SmartTokenButton = ({ children }) => (
-  <button className={smartTokenButtonStyles}>{children}</button>
+  <button className={smartTokenButtonStyles}>
+    {children}
+  </button>
 );
 
 export const SmartTokenTheme = ({ theme }) => {
@@ -81,9 +83,7 @@ export const SmartTokenTheme = ({ theme }) => {
 
 //////////////////// CSS CUSTOM PROPERTIES
 const cssButtonStyles = css`
-  border: 1px solid;
-  appearance: none;
-  cursor: pointer;
+  ${baseButtonStyles}
   color: var(--ink-color, ${white});
   background: var(--ink-bg, ${black});
 `;
@@ -109,6 +109,26 @@ export const CSSTheme = ({ theme }) => (
   </div>
 );
 
-export const NoTheme = () => (
-  <ExpensiveList component="button" title="Unstyled" />
+//////////////////// CSS PROPS with `cx`
+const cxButtonStyles = css`
+  color: var(--ink-color, ${white});
+  background: var(--ink-bg, ${black});
+`;
+
+const CXButton = ({ children }) => (
+  <button className={cx(baseButtonStyles, cxButtonStyles)}>{children}</button>
+);
+
+export const CXTheme = ({ theme }) => (
+  <div className={cssThemes[theme]}>
+    <ExpensiveList component={CXButton} title="CX/CSS Properties" />
+  </div>
+);
+//////////////////// UNTHEMEABLE
+const UnthemedButton = ({ children }) => (
+  <button className={baseButtonStyles}>{children}</button>
+);
+
+export const Unthemed = () => (
+  <ExpensiveList component={UnthemedButton} title="Unthemed" />
 );

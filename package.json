@@ -4,25 +4,15 @@
   "private": true,
   "dependencies": {
     "@nyt-cms/ink": "^0.3.4",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.4.0",
-    "@testing-library/user-event": "^7.2.1",
-    "emotion": "^10.0.27",
-    "emotion-theming": "^10.0.27",
+    "pretty-lights": "0.0.14",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-emotion": "^10.0.0",
-    "react-router-dom": "^5.1.2",
-    "react-scripts": "3.3.0"
+    "react-router-dom": "^5.1.2"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
+    "build": "webpack --mode=production",
+    "serve": "serve -s dist",
+    "start": "webpack-dev-server --open"
   },
   "browserslist": {
     "production": [
@@ -31,5 +21,14 @@
     "development": [
       "last 1 chrome version"
     ]
+  },
+  "devDependencies": {
+    "@sucrase/webpack-loader": "^2.0.0",
+    "html-webpack-plugin": "^3.2.0",
+    "serve": "^11.3.0",
+    "sucrase": "^3.12.1",
+    "webpack": "^4.41.6",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
   }
 }

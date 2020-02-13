@@ -7,10 +7,11 @@ import {
 } from "react-router-dom";
 
 import {
-  EmotionTheme,
+  StyledTheme,
   SmartTokenTheme,
   CSSTheme,
-  NoTheme,
+  CXTheme,
+  Unthemed,
   getStoredThemeName
 } from "./themes";
 
@@ -34,7 +35,7 @@ function App() {
             <NavLink to="/">Empty</NavLink>
           </li>
           <li>
-            <NavLink to="/emotion">Emotion</NavLink>
+            <NavLink to="/styled">styled('button')</NavLink>
           </li>
           <li>
             <NavLink to="/tokens">Smart Tokens</NavLink>
@@ -43,13 +44,16 @@ function App() {
             <NavLink to="/cssprops">CSS Properties</NavLink>
           </li>
           <li>
-            <NavLink to="/unstyled">Unstyled</NavLink>
+            <NavLink to="/cxprops">CSS Props via <code>cx</code></NavLink>
+          </li>
+          <li>
+            <NavLink to="/unthemed">Unthemed</NavLink>
           </li>
         </ul>
       </nav>
       <Switch>
-        <Route path="/emotion">
-          <EmotionTheme theme={theme} />
+        <Route path="/styled">
+          <StyledTheme theme={theme} />
         </Route>
         <Route path="/tokens">
           <SmartTokenTheme theme={theme} />
@@ -57,10 +61,13 @@ function App() {
         <Route path="/cssprops">
           <CSSTheme theme={theme} />
         </Route>
-        <Route path="/unstyled">
-          <NoTheme theme={theme} />
+        <Route path="/cxprops">
+          <CXTheme theme={theme} />
         </Route>
-        <Route path="/">Empty</Route>
+        <Route path="/unthemed">
+          <Unthemed />
+        </Route>
+        <Route path="/"><h3>Baseline: empty</h3></Route>
       </Switch>
     </Router>
   );

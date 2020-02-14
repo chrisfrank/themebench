@@ -3,7 +3,7 @@ Compare the speed of a few approaches for theming React components. Preview here
 
 ## Local Setup
 0. Install the [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en)
-1. git clone git@github.com:chrisfrank/themebench
+1. `git clone git@github.com:chrisfrank/themebench`
 2. `npm install`
 3. `npm run start`
 

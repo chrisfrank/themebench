@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>plain CSS | Themebench</title>
+    <style>
+      :root {
+        --ink-bg: #fff;
+        --ink-color: #000;
+        --ink-accent: #e7f0f6;
+      }
+      .darkmode {
+        --ink-bg: #000;
+        --ink-color: #fff;
+        --ink-accent: #0B4A7A;
+      }
+      .btn {
+        border: none;
+        appearance: none;
+        cursor: pointer;
+        border-radius: 0.25rem;
+        font-size: 1rem;
+        line-height: 1;
+        padding: 0.25rem 0.5rem;
+        font-weight: 700;
+        border: 2px solid;
+        display: inline-block;
+        margin: 0 4px 4px 0;
+        background: var(--ink-accent);
+        color: var(--ink-color);
+      }
+      .box {
+        background: var(--ink-bg);
+        color: var(--ink-color);
+      }
+    </style>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <script src="/dist/plaincss.js"></script>
+  </body>
+</html>

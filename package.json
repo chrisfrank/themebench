@@ -4,15 +4,17 @@
   "private": true,
   "dependencies": {
     "@nyt-cms/ink": "^0.3.4",
+    "classnames": "^2.2.6",
+    "clsx": "^1.1.0",
     "pretty-lights": "0.0.14",
     "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-router-dom": "^5.1.2"
+    "react-dom": "^16.12.0"
   },
   "scripts": {
-    "build": "webpack --mode=production",
-    "serve": "serve -s dist",
-    "start": "webpack-dev-server --open"
+    "build": "webpack",
+    "lint": "prettier src/**/*.js --write --single-quote --trailing-comma es5",
+    "serve": "serve public",
+    "start": "npm run build && npm run serve"
   },
   "browserslist": {
     "production": [
@@ -24,11 +26,10 @@
   },
   "devDependencies": {
     "@sucrase/webpack-loader": "^2.0.0",
-    "html-webpack-plugin": "^3.2.0",
+    "prettier": "^1.19.1",
     "serve": "^11.3.0",
     "sucrase": "^3.12.1",
     "webpack": "^4.41.6",
-    "webpack-cli": "^3.3.11",
-    "webpack-dev-server": "^3.10.3"
+    "webpack-cli": "^3.3.11"
   }
 }

@@ -1,7 +1,15 @@
-const HTMLWebpackPlugin = require("html-webpack-plugin");
-
 module.exports = {
-  entry: "./src/index.js",
+  entry: {
+    index: "./src/index.js",
+    styled: "./src/styled.js",
+    cssvars: "./src/cssvars.js",
+    themedcss: "./src/themedcss.js",
+    plaincss: "./src/plaincss.js",
+  },
+  output: {
+    filename: "[name].js",
+    path: __dirname + '/public/dist',
+  },
   module: {
     rules: [
       {
@@ -21,10 +29,4 @@ module.exports = {
       'scheduler/tracing': 'scheduler/tracing-profiling',
     },
   },
-  plugins: [
-    new HTMLWebpackPlugin({ template: "src/layout.ejs" })
-  ],
-  devServer: {
-    historyApiFallback: true,
-  }
 }
